@@ -1,0 +1,35 @@
+@* login1 Template File *@
+@()(implicit request: RequestHeader, flash: Flash)
+
+@main("Login") {
+    <h2>Login</h2>
+
+    <form method="get" action="validateLogin">
+        <h3>Login with GET</h3>
+        Username: <input type="test" name="username">
+        <br>
+        Password: <input type="password" name="password">
+        <br>
+        <input type="submit">
+    </form>
+
+    <form method="post" action="@routes.TaskList1.validateLoginPost()">
+        @helper.CSRF.formField
+        <h3>Login with POST</h3>
+        Username: <input type="test" name="username">
+        <br>
+        Password: <input type="password" name="password">
+        <br>
+        <input type="submit">
+    </form>
+
+    <form method="post" action="@routes.TaskList1.createUser()">
+        @helper.CSRF.formField
+        <h3>Create User</h3>
+        Username: <input type="test" name="username">
+        <br>
+        Password: <input type="password" name="password">
+        <br>
+        <input type="submit">
+    </form>
+}
